@@ -18,13 +18,6 @@ https://pptraas.com/pdf?url=https://paul.kinlan.me/
 ### Render generated static markup of page ("SSR")
 https://pptraas.com/ssr?url=https://angular2-hn.firebaseapp.com/
 
-### Render as Google Search bot
-
-Detects what features a page is using and cross references them with the features
-supported by the [Google Search bot](https://developers.google.com/search/docs/guides/rendering).
-
-https://pptraas.com/gsearch?url=https://paul.kinlan.me/
-
 ## Performance
 
 ### Get a timeline trace

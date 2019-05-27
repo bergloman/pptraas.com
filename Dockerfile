@@ -1,7 +1,7 @@
 FROM kinlan/puppets:latest
 
 # Copy the app
-COPY . /app/
+COPY package*.json /app/
 WORKDIR app
 RUN npm i
 
@@ -10,6 +10,8 @@ RUN groupadd -r pptruser && useradd -r -g pptruser -G audio,video pptruser \
     && mkdir -p /home/pptruser/Downloads \
     && chown -R pptruser:pptruser /home/pptruser \
     && chown -R pptruser:pptruser ./node_modules
+
+COPY *.js /app/
 
 # Run everything after as non-privileged user.
 USER pptruser

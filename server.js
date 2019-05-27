@@ -23,7 +23,6 @@ const fs = require("fs");
 const util = require("util");
 const marked = require("marked");
 const { URL } = require("url");
-const gsearch = require("./helpers/gsearch.js");
 
 const PORT = process.env.PORT || 8080;
 const app = express();
@@ -251,40 +250,6 @@ app.get("/version", async (request, response) => {
     const ua = await browser.userAgent();
     await browser.close();
     response.send(ua);
-});
-
-app.get("/gsearch", async (request, response) => {
-    const url = request.query.url;
-    if (!url) {
-        return response.status(400).send("Please provide a URL. Example: ?url=https://example.com");
-    }
-
-    const browser = response.locals.browser;
-    const results = await gsearch.run(browser, url, `/tmp/trace-${randomUUID()}.json`);
-    await browser.close();
-
-    const style = `
-    <style>
-      body {
-        padding: 1em;
-        font-size: 20px;
-        font-family: sans-serif;
-        font-weight: 300;
-        line-height: 1.4;
-      }
-      .summary a {
-        color: currentcolor;
-        text-decoration: none;
-      }
-      .red {
-        color: #F44336;
-      }
-      a {
-        color: magenta;
-      }
-    </style>
-  `;
-    response.send(style + results);
 });
 
 app.listen(PORT, function () {
