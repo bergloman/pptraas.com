@@ -26,14 +26,14 @@ https://my-server:my-port/ssr?url=https://angular2-hn.firebaseapp.com/
 
 ### Get a timeline trace
 
-"https://my-server:my-port/trace?url=https://paul.kinlan.me/
+https://my-server:my-port/trace?url=https://paul.kinlan.me/
 
 #### View the trace in trace-viewer:
 
 https://chromedevtools.github.io/timeline-viewer/?loadTimelineFromURL="https://my-server:my-port/trace?url=https://paul.kinlan.me/
 
 ### Get metrics
-"https://my-server:my-port/metrics?url=https://paul.kinlan.me/
+https://my-server:my-port/metrics?url=https://paul.kinlan.me/
 
 ## Misc
 
