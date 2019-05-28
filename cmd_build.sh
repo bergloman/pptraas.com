@@ -1,1 +1,1 @@
-docker build -t pptaas .
+docker build -t bergloman/pptraas .
