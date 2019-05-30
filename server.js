@@ -136,10 +136,9 @@ app.get("/screenshot", async (request, response) => {
         let buffer;
         const element = request.query.element;
         const wait = request.query.wait;
-
         if (wait) {
             await page.waitFor(wait);
-            buffer = await elementHandle.screenshot(opt);
+            buffer = await page.screenshot(opts);
         } else if (element) {
             const elementHandle = await page.$(element);
             if (!elementHandle) {
