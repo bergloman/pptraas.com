@@ -134,13 +134,16 @@ app.get("/screenshot", async (request, response) => {
         }
 
         let buffer;
-
         const element = request.query.element;
-        if (element) {
+        const wait = request.query.wait;
+
+        if (wait) {
+            await page.waitFor(wait);
+            buffer = await elementHandle.screenshot(opt);
+        } else if (element) {
             const elementHandle = await page.$(element);
             if (!elementHandle) {
-                return response.status(404).send(
-                    `Element ${element} not found`);
+                return response.status(404).send(`Element ${element} not found`);
             }
             buffer = await elementHandle.screenshot();
         } else {
